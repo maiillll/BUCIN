@@ -1,0 +1,365 @@
+/* --- Variabel CSS untuk Warna --- */
+:root {
+    --primary-color: #6a0dad; /* Ungu gelap */
+    --secondary-color: #9b59b6; /* Ungu sedang */
+    --accent-color: #FFC300; /* Kuning cerah */
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --bg-light: #f4f7f6;
+    --bg-dark: #34495e;
+    --card-bg: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header & Navigasi --- */
+.main-header {
+    background-color: var(--card-bg);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    position: sticky;
+    top: 1;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.main-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 25px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+}
+
+.main-nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::before,
+.main-nav a.active::before {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+/* HAPUS SEMUA CSS .hero-section, .hero-title, .hero-subtitle LAMA ANDA, LALU GANTI DENGAN INI */
+
+.hero-section {
+    /* Membuat background gradient ungu yang indah */
+   background-image: url('/images/IMG_3569.jpg');
+    /* Mengatur posisi dan padding */
+    padding: 100px 0;
+    position: center;
+    background-size: 100%;
+   
+     background-attachment: fixed; 
+    overflow: hidden; /* Penting untuk elemen dekoratif nanti */
+    
+    /* Memberi bentuk melengkung di bagian bawah */
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Menambahkan efek titik-titik (bintang) di background seperti di gambar */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+}
+
+.hero-content {
+    /* Mengatur semua konten agar di tengah */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    position: relative; /* Agar konten berada di atas background bintang */
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.8rem; /* Ukuran font lebih besar */
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+
+
+    /* Disiapkan untuk animasi GSAP */
+    opacity:100 ;
+    transform: translateY(-30px);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    max-width: 600px; /* Agar teks tidak terlalu lebar di layar besar */
+    margin-bottom: 30px;
+
+    /* Disiapkan untuk animasi GSAP */
+    opacity: 100;
+    transform: translateY(30px);
+}
+
+.hero-button {
+    /* Style untuk tombol kuning */
+    display: inline-block;
+    background-color: #f1c40f; /* Warna kuning seperti gambar */
+    color: #2c3e50; /* Warna teks gelap agar kontras */
+    padding: 14px 40px;
+    border-radius: 50px; /* Membuat tombol lonjong sempurna */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Disiapkan untuk animasi GSAP */
+    opacity: 100;
+    transform: scale(0.8);
+}
+
+.hero-button:hover {
+    transform: translateY(-5px) scale(1.05); /* Efek mengangkat saat disentuh mouse */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Penyesuaian untuk layar mobile */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .hero-section {
+        padding: 80px 0;
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Untuk animasi GSAP */
+    transform: scale(0.9); /* Untuk animasi GSAP */
+}
+
+.btn-primary:hover {
+    background-color: #FFD700; /* Sedikit lebih gelap */
+    transform: scale(1.05) translateY(-3px);
+}
+
+/* --- Project Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0; /* Untuk animasi GSAP */
+    transform: translateY(50px); /* Untuk animasi GSAP */
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card-content {
+    padding: 25px;
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 50px;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    .main-nav a {
+        margin: 0 15px;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* === STYLE UNTUK HALAMAN GALERI === */
+
+.page-title {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.page-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Membuat kolom responsif, setiap kolom minimal 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-bottom: 50px;
+}
+
+.photo-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+
+    /* Disiapkan untuk animasi GSAP */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1); /* Efek zoom saat disentuh mouse */
+    filter: brightness(0.8);
+}
+
+/* Overlay yang muncul saat hover */
+.photo-item::after {
+    content: 'Lihat Detail';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.photo-item:hover::after {
+    opacity: 1;
+}
