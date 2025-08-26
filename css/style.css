@@ -88,8 +88,7 @@ body {
 
 .hero-section {
     /* Membuat background gradient ungu yang indah */
-   background-image: url('/images/IMG_3569.jpg');
-    /* Mengatur posisi dan padding */
+  
     padding: 100px 0;
     position: center;
     background-size: 100%;
@@ -362,4 +361,5 @@ body {
 
 .photo-item:hover::after {
     opacity: 1;
+
 }
