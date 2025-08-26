@@ -87,13 +87,14 @@ body {
 /* HAPUS SEMUA CSS .hero-section, .hero-title, .hero-subtitle LAMA ANDA, LALU GANTI DENGAN INI */
 
 .hero-section {
-    /* Membuat background gradient ungu yang indah */
-  
-    padding: 100px 0;
-    position: center;
-    background-size: 100%;
-   
-     background-attachment: fixed; 
+   height: 70vh;
+    background: url('../images/IMG_3569.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
     overflow: hidden; /* Penting untuk elemen dekoratif nanti */
     
     /* Memberi bentuk melengkung di bagian bawah */
@@ -363,3 +364,4 @@ body {
     opacity: 1;
 
 }
+
